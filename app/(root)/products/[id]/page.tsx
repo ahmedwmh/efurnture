@@ -6,17 +6,19 @@ import { fetchSingleProduct } from '@/utils/actions';
 import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
 import React from 'react';
+import { Metadata } from 'next';
 
-interface ProductDetailsPageProps {
-  params: {
-    id: string;
+// Generate metadata if needed
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const product = await fetchSingleProduct(params.id);
+  return {
+    title: product.name,
+    description: product.description,
   };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-async function ProductDetailsPage({ params }: ProductDetailsPageProps) {
-  const { id } = params;
-  const product = await fetchSingleProduct(id);
+export default async function Page({ params }: { params: { id: string } }) {
+  const product = await fetchSingleProduct(params.id);
   const dollarAmount = formatCurrency(product.price);
 
   return (
@@ -50,5 +52,3 @@ async function ProductDetailsPage({ params }: ProductDetailsPageProps) {
     </section>
   );
 }
-
-export default ProductDetailsPage;
