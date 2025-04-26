@@ -18,7 +18,7 @@ interface ProductDetailsPageProps{
 }
 
 
-async function ProdcutDetailsPage({params}:ProductDetailsPageProps) {
+async function ProductDetailsPage({params}:ProductDetailsPageProps) {
 
 
   const {id} = await params;
@@ -65,4 +65,4 @@ async function ProdcutDetailsPage({params}:ProductDetailsPageProps) {
   )
 }
 
-export default ProdcutDetailsPage
+export default ProductDetailsPage;
