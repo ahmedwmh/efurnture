@@ -1,14 +1,11 @@
 import ProductsContainer from '@/components/prodcuts/ProductsContainer';
+import { SearchParams } from 'next/dist/server/request/search-params';
 import React from 'react';
 
-interface ProductsPageProps {
-  searchParams: {
-    layout?: string;
-    search?: string;
-  };
-}
 
-async function ProductsPage({ searchParams }: ProductsPageProps) {
+
+
+async function ProductsPage({ searchParams }: any) {
   const { layout = 'grid', search = '' } = searchParams || {};
 
   return (
