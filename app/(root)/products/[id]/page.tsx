@@ -7,21 +7,15 @@ import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
 import React from 'react'
 
-
-
 interface Params {
   id : string
 }
 
-interface ProductDetailsPageProps{
-  params:Params
-}
+
+async function ProdcutDetailsPage({params}:{params: Params}) {
 
 
-async function ProductDetailsPage({params}:ProductDetailsPageProps) {
-
-
-  const {id} =  params;
+  const {id} = await params;
   
   const product = await fetchSingleProduct(id);
   const dollarAmount = formatCurrency(product.price);
@@ -65,4 +59,4 @@ async function ProductDetailsPage({params}:ProductDetailsPageProps) {
   )
 }
 
-export default ProductDetailsPage;
+export default ProdcutDetailsPage
