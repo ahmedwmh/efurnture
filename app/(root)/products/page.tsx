@@ -1,23 +1,19 @@
 import ProductsContainer from '@/components/prodcuts/ProductsContainer';
 import React from 'react';
 
-
-
-interface ProjectsPageProps {
+interface ProductsPageProps {
   searchParams: {
     layout?: string;
     search?: string;
   };
 }
 
-
-async function ProjectsPage({ searchParams }: ProjectsPageProps) {
+async function ProductsPage({ searchParams }: ProductsPageProps) {
   const { layout = 'grid', search = '' } = searchParams || {};
-
 
   return (
     <ProductsContainer layout={layout} search={search} />
   );
 }
 
-export default ProjectsPage;
+export default ProductsPage;

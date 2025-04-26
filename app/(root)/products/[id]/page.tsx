@@ -7,27 +7,22 @@ import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
 import React from 'react';
 
-interface Params {
-  id: string;
-}
-
 interface ProductDetailsPageProps {
-  params: Params;
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-async function ProdcutDetailsPage({ params }: ProductDetailsPageProps) {
+async function ProductDetailsPage({ params }: ProductDetailsPageProps) {
   const { id } = params;
-  
   const product = await fetchSingleProduct(id);
   const dollarAmount = formatCurrency(product.price);
-  
-  console.log(product);
 
   return (
     <section>
       <BreadCrumbs name={product.name} />
       <section className="grid lg:grid-cols-2 mt-6 gap-y-6 lg:gap-x-12">
-
         {/* Image */}
         <div className="relative h-full">
           <Image
@@ -51,10 +46,9 @@ async function ProdcutDetailsPage({ params }: ProductDetailsPageProps) {
           <p className="mt-6 text-md leading-8">{product.description}</p>
           <AddtoCart productID={product.id} />
         </div>
-
       </section>
     </section>
   );
 }
 
-export default ProdcutDetailsPage;
+export default ProductDetailsPage;
