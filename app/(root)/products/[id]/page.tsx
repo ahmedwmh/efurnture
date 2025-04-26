@@ -21,7 +21,7 @@ interface ProductDetailsPageProps{
 async function ProductDetailsPage({params}:ProductDetailsPageProps) {
 
 
-  const {id} = await params;
+  const {id} =  params;
   
   const product = await fetchSingleProduct(id);
   const dollarAmount = formatCurrency(product.price);
