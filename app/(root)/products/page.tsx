@@ -1,25 +1,23 @@
 import ProductsContainer from '@/components/prodcuts/ProductsContainer';
 import React from 'react';
 
-import { PageProps } from 'next';
 
 
+interface ProjectsPageProps {
+  searchParams: {
+    layout?: string;
+    search?: string;
+  };
+}
 
 
-
-async function ProjectsPage({searchParams}:PageProps<{ layout?: string; search?: string }>) {
-  
-
-  const {layout = 'grid'} = await searchParams || {};
-  const {search} = await searchParams || '';
-
-  
+async function ProjectsPage({ searchParams }: ProjectsPageProps) {
+  const { layout = 'grid', search = '' } = searchParams || {};
 
 
   return (
-    <ProductsContainer layout={layout} search={search}/>
-  )
+    <ProductsContainer layout={layout} search={search} />
+  );
 }
 
-export default ProjectsPage
-
+export default ProjectsPage;
