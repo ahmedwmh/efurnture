@@ -10,6 +10,8 @@ interface ProductsPageProps  {
    }
 }
 
+
+
 async function ProjectsPage({searchParams}:ProductsPageProps) {
   
 
