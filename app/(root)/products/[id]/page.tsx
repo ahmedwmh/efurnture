@@ -7,7 +7,9 @@ import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
 import React from 'react';
 
-async function ProductDetailsPage({ params }: any) {
+
+
+async function ProductDetailsPage({ params }:  any) {
   const { id } = await params;
   
   try {
