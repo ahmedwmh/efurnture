@@ -7,12 +7,18 @@ import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
 import React from 'react'
 
+
+
 interface Params {
   id : string
 }
 
+interface ProductDetailsPageProps{
+  params:Params
+}
 
-async function ProdcutDetailsPage({params}:{params: Params}) {
+
+async function ProdcutDetailsPage({params}:ProductDetailsPageProps) {
 
 
   const {id} = await params;
